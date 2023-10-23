@@ -61,7 +61,7 @@ public extension UIView {
     }
 
 
-    func asContainer(padding: UIEdgeInsets) -> UIView {
+    func asContainer(padding: EdgeInsets = EdgeInsets()) -> UIView {
         let container = UIView()
         container.addSubview(self)
         self.setAnchors(container, padding)
@@ -81,7 +81,7 @@ public extension UIView {
 
 
     func setAnchorsEqual(to base: UIView,
-                         _ padding: UIEdgeInsets = UIEdgeInsets.zero, safe: Bool = false) {
+                         _ padding: EdgeInsets = EdgeInsets(), safe: Bool = false) {
         safe ? setAnchorsWithSafeArea(base, padding) : setAnchors(base, padding)
     }
 
@@ -91,7 +91,7 @@ public extension UIView {
     }
 
 
-    private func setAnchorsWithSafeArea(_ base: UIView, _ padding: UIEdgeInsets) {
+    private func setAnchorsWithSafeArea(_ base: UIView, _ padding: EdgeInsets) {
         self.anchor(
             top: base.safeAreaLayoutGuide.topAnchor,
             bottom: base.safeAreaLayoutGuide.bottomAnchor,
@@ -105,7 +105,7 @@ public extension UIView {
     }
 
 
-    private func setAnchors(_ base: UIView, _ padding: UIEdgeInsets) {
+    private func setAnchors(_ base: UIView, _ padding: EdgeInsets = EdgeInsets()) {
         self.anchor(
             top: base.topAnchor,
             bottom: base.bottomAnchor,
