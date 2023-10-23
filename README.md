@@ -30,3 +30,34 @@ button.centerYEqual(to: view)
 button.centerXYEqual(to: view)
 
 ```
+
+## Install
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YourAppHere",
+    platforms: [.iOS(.v12)], // iOS 12 or later
+    products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "YourAppHere",
+            targets: ["YourAppHere"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/BMilliet/UIKitViewCode", branch: "main"),
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "YourAppHere",
+            dependencies: ["UIKitViewCode"]
+        ),
+        .testTarget(
+            name: "YourAppHereTests",
+            dependencies: ["YourAppHere"]),
+    ]
+)
+```
