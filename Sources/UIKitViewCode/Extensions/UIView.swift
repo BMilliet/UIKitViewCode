@@ -91,6 +91,13 @@ public extension UIView {
     }
 
 
+    func placeAt(x: CGFloat, y: CGFloat) {
+        let height = self.frame.height
+        let width = self.frame.width
+        self.frame = CGRect(x: x, y: y, width: width, height: height)
+    }
+
+
     private func setAnchorsWithSafeArea(_ base: UIView, _ padding: EdgeInsets) {
         self.anchor(
             top: base.safeAreaLayoutGuide.topAnchor,
